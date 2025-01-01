@@ -20,4 +20,14 @@ const createNewPost = async (req, res) => {
   }
 };
 
-export { getAllPosts, createNewPost };
+const getPostById = async (req, res) => {
+  try {
+    const post = Post.findById(req.params.id)
+    res.status(201).json(post);
+
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+export { getAllPosts, createNewPost,getPostById };
