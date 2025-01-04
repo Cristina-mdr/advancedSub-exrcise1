@@ -2,12 +2,12 @@ import { Schema, model } from "mongoose";
 
 const commentSchema = new Schema(
   {
-    postId: Schema.Types.ObjectId,
-    comment: String,
+    post_id: { type: Schema.Types.ObjectId, ref: "Post", required: true },
+    comment: { type: String },
   },
   { collection: "Comments" }
 );
 
-const Comment = model("Post", commentSchema);
+const Comment = model("Comment", commentSchema);
 
 export default Comment;

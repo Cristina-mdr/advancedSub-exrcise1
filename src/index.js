@@ -35,7 +35,7 @@ app.get("/post/:post_id", getPostById);
 app.get("/post", getPostsBySender);
 app.put("/post/:post_id", updatePost);
 
-app.get("/comment/:postId", getCommentsByPostId);
+app.get("/comment/:post_id", getCommentsByPostId);
 app.post("/comment/create", createNewComment);
 
 app.listen(8000, () => {
