@@ -9,7 +9,12 @@ import {
   updatePost,
 } from "./postDao.js";
 import cors from "cors";
-import { createNewComment, getCommentsByPostId } from "./commentDao.js";
+import {
+  createNewComment,
+  deleteComment,
+  updateComment,
+  getCommentsByPostId,
+} from "./commentDao.js";
 
 dotenv.config();
 const app = express();
@@ -37,6 +42,8 @@ app.put("/post/:post_id", updatePost);
 
 app.get("/comment/:post_id", getCommentsByPostId);
 app.post("/comment/create", createNewComment);
+app.put("/comment/:id", updateComment);
+app.delete("/comment/:id", deleteComment);
 
 app.listen(8000, () => {
   console.log(`Server is running on port 8000`);
