@@ -11,7 +11,7 @@ const getAllPosts = async (_req, res) => {
 
 const createNewPost = async (req, res) => {
   try {
-    const post = Post({ message: req.body.message });
+    const post = Post({ message: req.body.message, sender_id:req.body.sender_id });
     const savedPost = await post.save();
     res.status(201).json(savedPost);
 
